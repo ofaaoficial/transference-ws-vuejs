@@ -1,5 +1,5 @@
 ## 🔥 Transferencia nacional habilidad 17. Tecnologías web
-En este taller del lado de cliente con el framework [Vue.js]( https://vuejs.org/).
+Taller del lado de cliente con el framework [Vue.js]( https://vuejs.org/).
 
 ![Logo Vue.js](https://cdn.iconscout.com/icon/free/png-256/vue-282497.png)
 
