@@ -21,7 +21,7 @@ Explique de manera técnica y con ejemplos básicos la funcionalidad de este gra
     * Registro de componentes.
     * Propiedades.
 * Buenas practicas con Ecmascript 6 o superior.
-* Estrategia de competencia con este framework además se compartió [ejemplo mi arquitectura desarrollada para competencia internacional](https://github.com/ofaaoficial/vue-arquitecture-example).
+* Estrategia de competencia con este framework además se compartió [ejemplo de mi arquitectura desarrollada para competencia internacional](https://github.com/ofaaoficial/vue-arquitecture-example).
 
 ## License 🔥
 Copyright © 2019-present [Oscar Amado](https://github.com/ofaaoficial) 🧔
