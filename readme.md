@@ -9,6 +9,7 @@ Explique de manera técnica y con ejemplos básicos la funcionalidad de este gra
 
 * Instalación.
 * Instancia y configuración del framework.
+* Ciclo de vida.
 * Sintaxis.
 * Propiedades computadas.
 * Modificadores.
