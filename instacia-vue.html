@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <main id="app">
+        <h1>Hola</h1>
+        {{ msg }}
+        {{ fullname }}
+
+        <section v-if="color == 'red'">
+            <p @click="saludar()">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto assumenda commodi consectetur deserunt dolor ea eaque fugit in ipsam, laboriosam nam praesentium ratione reprehenderit sequi totam velit. Doloremque, esse.</p>
+        </section>
+    </main>
+    <script src="assets/js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    nombres: [
+                        'Oscar',
+                        'Cristian',
+                        'Jhoan',
+                        'Benito'
+                    ],
+                    msg: 'hola mundo desde vue',
+                    color: 'red',
+                    form: {
+                        name: 'Oscar',
+                        last_name: 'Amado'
+                    }
+                }
+            },
+            beforeCreate(){
+                console.log('beforeCreate');
+            },
+            created(){
+                console.log('created');
+            },
+            methods: {
+                saludar(){
+                    this.msg = 'test';
+                    alert('hola');
+                }
+            },
+            computed: {
+                fullname(){
+                    return `${this.form.name} ${this.form.last_name}`;
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

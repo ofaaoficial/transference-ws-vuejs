@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <h1>Hola {{ fullname }}!</h1>
+    <form method="POST" @submit.prevent="sendData">
+        <label for="name">Name</label>
+        <input type="text" v-model="user.name" id="name">
+        <hr>
+        <label for="last_name">Last name</label>
+        <input type="text" v-model="user.last_name" id="last_name">
+        <hr>
+        <input type="submit" value="Send">
+    </form>
+    <hr>
+    <section v-for="usuario in usuarios">
+        <p>{{ usuario.name }}</p>
+        <ul>
+            <li v-for="friend in usuario.friends">
+                <p>{{ friend }}</p>
+            </li>
+        </ul>
+    </section>
+
+</div>
+<script src="assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                user: {
+                    name: '',
+                    last_name: ''
+                },
+                usuarios: [
+                    {
+                        name: 'Oscar',
+                        friends: [
+                            'Cristian',
+                            'Jhoan'
+                        ]
+                    },
+                    {
+                        name: 'Cristian',
+                        friends: [
+                            'Oscar',
+                            'Jhoan'
+                        ]
+                    },
+                ]
+            }
+        },
+        computed: {
+            fullname(){
+                return `${this.user.name} ${this.user.last_name}`;
+            }
+        },
+        methods: {
+            sendData(){
+                if(!this.user.name
+                    &&
+                !this.user.last_name)
+                    alert("Empty data");
+
+                console.log(this.user)
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

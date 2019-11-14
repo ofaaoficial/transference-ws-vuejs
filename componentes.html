@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <Post v-for="post in posts"
+          :titulo="post.titulo"
+          :contenido="post.contenido"
+    ></Post>
+
+
+</div>
+
+<script src="assets/js/vue.js"></script>
+<script>
+
+    Vue.component('post', {
+        props: ['titulo', 'contenido'],
+        template:
+            `
+           <section @click.prevent="cambiarTitulo">
+               <h1>{{titulo}}</h1>
+               <p>{{contenido}}</p>
+           </section>
+        `,
+    });
+
+    const app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                posts: [
+                    {
+                        titulo: 'Titulo 1',
+                        contenido: 'contenido 1'
+                    },
+                    {
+                        titulo: 'Titulo 2',
+                        contenido: 'contenido 2'
+                    },
+                    {
+                        titulo: 'Titulo 3',
+                        contenido: 'contenido 3'
+                    },
+                ]
+            }
+        },
+    });
+</script>
+
+</body>
+</html>

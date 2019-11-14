@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main id="app">
+        <h1>Likes {{ contador }}</h1>
+        <button @click.prevent="cambiarValor('agregar')">+</button>
+        <button @click.prevent="cambiarValor('restar')">-</button>
+    </main>
+    <script src="assets/js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    contador: 0
+                }
+            },
+            methods: {
+                cambiarValor(accion){
+                    switch (accion) {
+                        case 'agregar':
+                            this.contador++;
+                            break;
+                        case 'restar':
+                            this.contador--;
+                        break;
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
