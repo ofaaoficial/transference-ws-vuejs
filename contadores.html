@@ -6,13 +6,107 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<script src="assets/js/vue.js"></script>
+<section id="app">
+    <Posts
+            :posts="posts"
+            class="posts"
+            @change-value="changeValue"
+    ></Posts>
+</section>
 
+<script src="assets/js/vue.js"></script>
 <script>
+    Vue.component('Post', {
+        props: ["post"],
+        template:
+        `
+            <section class="post">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <article class="post-footer">
+                    <button class="btn btn-rem" @click="changeValue(post.id, 'less')">-</button>
+                    <span>{{post.likes}}</span>
+                    <button class="btn btn-add" @click="changeValue(post.id, 'more')">+</button>
+                </article>
+            </section>
+        `,
+        methods: {
+            changeValue(id, type){
+                this.$emit('changeValue', {id, type});
+                console.log('emmiting 1');
+            }
+        }
+    });
+
+    Vue.component('Posts', {
+        props: ["posts"],
+        template:
+        `
+            <section>
+                <h1>Posts</h1>
+                <article class="list-posts">
+                    <Post
+                        :post="post"
+                        :key="post.id"
+                        v-for="post in posts"
+                        @changeValue="changeValue"
+                    ></Post>
+                </article>
+            </section>
+        `,
+        methods: {
+            changeValue(obj){
+                this.$emit('change-value', obj);
+                console.log('emmiting 2');
+            }
+        }
+    })
+
     const app = new Vue({
         el: '#app',
+        data(){
+            return {
+                posts:  [
+                    {
+                        id: 1,
+                        title: "Post 1",
+                        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum dicta dolorum esse et illo itaque maiores quas, quisquam repudiandae similique suscipit. Error expedita harum ipsa obcaecati reprehenderit sequi voluptas.",
+                        likes: 0
+                    },
+                    {
+                        id: 2,
+                        title: "Post 2",
+                        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum dicta dolorum esse et illo itaque maiores quas, quisquam repudiandae similique suscipit. Error expedita harum ipsa obcaecati reprehenderit sequi voluptas.",
+                        likes: 3
+                    },
+                    {
+                        id: 3,
+                        title: "Post 3",
+                        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum dicta dolorum esse et illo itaque maiores quas, quisquam repudiandae similique suscipit. Error expedita harum ipsa obcaecati reprehenderit sequi voluptas.",
+                        likes: 5
+                    },
+                    {
+                        id: 4,
+                        title: "Post 4",
+                        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cum dicta dolorum esse et illo itaque maiores quas, quisquam repudiandae similique suscipit. Error expedita harum ipsa obcaecati reprehenderit sequi voluptas.",
+                        likes: 8
+                    }
+                ]
+            }
+        },
+        methods: {
+            changeValue(obj){
+                const post = this.posts.find(post => post.id == obj.id);
+                switch (obj.type) {
+                    case 'more': post.likes++; break;
+                    case 'less': post.likes--; break;
+                }
+                console.log('changing data');
+            }
+        }
     })
 </script>
 </body>

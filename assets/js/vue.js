@@ -1570,7 +1570,7 @@
   /**
    * Resolve an asset.
    * This function is used because child instances need access
-   * to assets defined in its ancestor chain.
+   * to css defined in its ancestor chain.
    */
   function resolveAsset (
     options,
@@ -5165,7 +5165,7 @@
       Sub.use = Super.use;
 
       // create asset registers, so extended classes
-      // can have their private assets too.
+      // can have their private css too.
       ASSET_TYPES.forEach(function (type) {
         Sub[type] = Super[type];
       });
