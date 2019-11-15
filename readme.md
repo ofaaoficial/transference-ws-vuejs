@@ -23,5 +23,7 @@ Explique de manera técnica y con ejemplos básicos la funcionalidad de este gra
 * Buenas practicas con Ecmascript 6 o superior.
 * Estrategia de competencia con este framework además se compartió [ejemplo de mi arquitectura desarrollada para competencia internacional](https://github.com/ofaaoficial/vue-arquitecture-example).
 
+Para más información sobre la competencia internacional (WorldSkills Kazán 2019), experiencias de entrenamientos, trucos, consejos puede revisar el siguiente repositorio [Worldskills Web Technologies](https://github.com/ofaaoficial/worldskills-web-technologies). 
+
 ## License 🔥
 Copyright © 2019-present [Oscar Amado](https://github.com/ofaaoficial) 🧔
